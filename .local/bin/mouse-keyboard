@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Disabling mouse acceleration & setting pointer speed
+xinput set-prop "Logitech USB Receiver Mouse" "libinput Accel Profile Enabled" 0 1 0
+xinput set-prop "Logitech USB Receiver Mouse" "libinput Accel Speed" -0.3
+
+# Setting a better keyboard repeat rate
+xset r rate 200 40

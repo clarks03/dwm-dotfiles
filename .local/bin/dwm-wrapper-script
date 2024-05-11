@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Setting proper monitor orientation and stuff
+/home/stephenc/.screenlayout/screen-layout.sh &
+
+# Restoring the nitrogen wallpaper
+nitrogen --restore &
+
+# Setting mouse and keyboard
+/home/stephenc/.local/bin/mouse-keyboard &
+
+# Status bar
+slstatus &
+
+# Notifications
+dunst &
+
+exec dwm
