@@ -4,7 +4,7 @@
 
 # Checking if the .config folder exists
 echo "Checking for .config folder..."
-if [ -f "$HOME"/.config ]; then
+if [ -d "$HOME"/.config ]; then
     echo ".config folder located."
 else
     echo "No .config folder located."
@@ -33,13 +33,13 @@ fi
 
 # Check if user already has a dunst config
 echo "Checking for an existing dunst config..."
-if [ -f "$HOME"/.config/dunst ]; then
+if [ -d "$HOME"/.config/dunst ]; then
     echo "dunst configuration found."
     while true; do
         read -p "Do you want to backup your config? [y/n] " yn
         case $yn in
             [Yy]* ) mv "$HOME"/.config/dunst "$HOME"/.config/dunst.bak; break;;
-            *) break;;
+            *) rm -fr "$HOME"/.config/dunst; break;;
         esac
     done
 fi
@@ -63,20 +63,20 @@ fi
 
 # Check if user already has a kitty config
 echo "Checking for an existing kitty config..."
-if [ -f "$HOME"/.config/kitty ]; then
+if [ -d "$HOME"/.config/kitty ]; then
     echo "kitty configuration found."
     while true; do
         read -p "Do you want to backup your config? [y/n] " yn
         case $yn in
             [Yy]* ) mv "$HOME"/.config/kitty "$HOME"/.config/kitty.bak; break;;
-            *) break;;
+            *) rm -fr "$HOME"/.config/kitty; break;;
         esac
     done
 fi
 
 # Install kitty config
 echo "Installing kitty config..."
-ln -s $(pwd)/.config/kitty "$HOME"/.config/kitty
+ln -sf $(pwd)/.config/kitty "$HOME"/.config/kitty
 echo ""
 
 
@@ -94,20 +94,20 @@ fi
 
 # Check if user already has a neovim config
 echo "Checking for an existing neovim config..."
-if [ -f "$HOME"/.config/neovim ]; then
+if [ -d "$HOME"/.config/nvim ]; then
     echo "neovim configuration found."
     while true; do
         read -p "Do you want to backup your config? [y/n] " yn
         case $yn in
             [Yy]* ) mv "$HOME"/.config/nvim "$HOME"/.config/nvim.bak; break;;
-            *) break;;
+            *) rm -fr "$HOME"/.config/nvim; break;;
         esac
     done
 fi
 
 # Install neovim config
 echo "Installing neovim..."
-ln -s $(pwd)/.config/nvim "$HOME"/.config/nvim
+ln -sf $(pwd)/.config/nvim "$HOME"/.config/nvim
 echo ""
 
 # Adding .zshrc
@@ -152,7 +152,7 @@ fi
 
 # Installing the .zshrc config
 echo "Installing .zshrc config..."
-ln -s $(pwd)/.zshrc "$HOME"/.zshrc
+ln -sf $(pwd)/.zshrc "$HOME"/.zshrc
 echo ""
 
 # BONUS: check that they have krabby installed
@@ -193,7 +193,7 @@ fi
 
 # Install starship config
 echo "Installing starship config..."
-ln -s $(pwd).config/starship.toml "$HOME"/.config/starship.toml
+ln -sf $(pwd)/.config/starship.toml "$HOME"/.config/starship.toml
 echo ""
 
 
@@ -202,15 +202,15 @@ echo ""
 # Adding src
 # Checking if .local/src already exists
 echo "Checking if user has a .local/src directory..."
-if [ -f "$HOME"/.local/src ]; then
+if [ -d "$HOME"/.local/src ]; then
     echo "~/.local/src found"
     for f in $(/bin/ls $(pwd)/.local/src); do
         echo "Linking ${f}..."
-        ln -s $(pwd)/.local/src/"$f" "$HOME"/.local/src/"$f"
+        ln -sf $(pwd)/.local/src/"$f" "$HOME"/.local/src/"$f"
     done
 else
     echo "~/.local/src not found. Linking whole directory..."
-    ln -s $(pwd)/.local/src "$HOME"/.local/src
+    ln -sf $(pwd)/.local/src "$HOME"/.local/src
 fi
 
 # Ask if they want to remake dwm
@@ -244,15 +244,15 @@ done
 # Adding bin
 # Checking if .local/bin already exists
 echo "Checking if user has a .local/bin directory..."
-if [ -f "$HOME"/.local/bin ]; then
+if [ -d "$HOME"/.local/bin ]; then
     echo "~/.local/bin found"
     for f in $(/bin/ls $(pwd)/.local/bin); do
         echo "Linking ${f}..."
-        ln -s $(pwd)/.local/bin/"$f" "$HOME"/.local/bin/"$f"
+        ln -sf $(pwd)/.local/bin/"$f" "$HOME"/.local/bin/"$f"
     done
 else
     echo "~/.local/bin not found. Linking whole directory..."
-    ln -s $(pwd)/.local/bin "$HOME"/.local/bin
+    ln -sf $(pwd)/.local/bin "$HOME"/.local/bin
 fi
 
 # Check if .local/bin is in the path
