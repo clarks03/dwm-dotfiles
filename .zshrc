@@ -106,4 +106,4 @@ eval "$(starship init zsh)"
 export BROWSER=/usr/bin/firefox
 
 krabby random
-export PATH=/home/stephenc/.local/bin:/home/stephenc/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/local/texlive/2024/bin/x86_64-linux
+export PATH="$HOME"/.local/bin:"$HOME"/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/usr/local/texlive/2024/bin/x86_64-linux
