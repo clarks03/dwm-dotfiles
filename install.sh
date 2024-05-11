@@ -46,7 +46,7 @@ fi
 
 # Install dunst config
 echo "Installing dunst config..."
-ln -sf "$HOME"/dwm-dotfiles/.config/dunst "$HOME"/.config/dunst
+ln -sf $(pwd)/.config/dunst "$HOME"/.config/dunst
 echo ""
 
 # Adding kitty
@@ -76,7 +76,7 @@ fi
 
 # Install kitty config
 echo "Installing kitty config..."
-ln -s "$HOME"/dwm-dotfiles/.config/kitty "$HOME"/.config/kitty
+ln -s $(pwd)/.config/kitty "$HOME"/.config/kitty
 echo ""
 
 
@@ -107,7 +107,7 @@ fi
 
 # Install neovim config
 echo "Installing neovim..."
-ln -s "$HOME"/dwm-dotfiles/.config/nvim "$HOME"/.config/nvim
+ln -s $(pwd)/.config/nvim "$HOME"/.config/nvim
 echo ""
 
 # Adding .zshrc
@@ -152,7 +152,7 @@ fi
 
 # Installing the .zshrc config
 echo "Installing .zshrc config..."
-ln -s "$HOME"/dwm-dotfiles/.zshrc "$HOME"/.zshrc
+ln -s $(pwd)/.zshrc "$HOME"/.zshrc
 echo ""
 
 # BONUS: check that they have krabby installed
@@ -193,7 +193,7 @@ fi
 
 # Install starship config
 echo "Installing starship config..."
-ln -s "$HOME"/dwm-dotfiles/.config/starship.toml "$HOME"/.config/starship.toml
+ln -s $(pwd).config/starship.toml "$HOME"/.config/starship.toml
 echo ""
 
 
@@ -210,7 +210,7 @@ if [ -f "$HOME"/.local/src ]; then
     done
 else
     echo "~/.local/src not found. Linking whole directory..."
-    ln -s "$HOME"/dwm-dotfiles/.local/src "$HOME"/.local/src
+    ln -s $(pwd)/.local/src "$HOME"/.local/src
 fi
 
 # Ask if they want to remake dwm
@@ -252,7 +252,7 @@ if [ -f "$HOME"/.local/bin ]; then
     done
 else
     echo "~/.local/bin not found. Linking whole directory..."
-    ln -s "$HOME"/dwm-dotfiles/.local/bin "$HOME"/.local/bin
+    ln -s $(pwd)/.local/bin "$HOME"/.local/bin
 fi
 
 # Check if .local/bin is in the path
