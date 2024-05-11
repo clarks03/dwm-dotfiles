@@ -65,10 +65,10 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ run_command, "^b#181b21^^c#bf616a^^b#bf616a^^c#2e3440^ 󰕾 %s%% ", "pactl list sinks | awk '/Volume:/ {print $5}' | head -n 1 | awk -F '%' '{print $1}'" },
-	{ run_command, "^c#d08770^^b#d08770^^c#2e3440^ 󰍬 %s%% ", "pactl list sources | grep -A 10 \"USB Advanced Audio Device Analog Stereo\" | grep \"Volume:\" | awk '{print $5}' | awk -F'%' '{print $1}' | head -n 3 | tail -n 1" },
-	{ ram_perc, "^c#ebcb8b^^b#ebcb8b^^c#2e3440^ 󰍛 %s%% ",                  NULL },
-	{ cpu_perc, "^c#a3be8c^^b#a3be8c^^c#2e3440^ 󰘚 %s%% ",                  NULL },
+	{ run_command, "^b#181b21^^c#bf616a^^b#bf616a^^c#2e3440^ 󰕾 %s%% ", "pactl get-sink-volume $(pactl get-default-sink) | awk '{print $5}' | awk -F '%' '{print $1}'" },
+	{ run_command, "^c#d08770^^b#d08770^^c#2e3440^ 󰍬 %s%% ", "pactl get-source-volume $(pactl get-default-source) | awk '{print $5}' | awk -F '%' '{print $1}'" },
+	{ ram_perc, "^c#ebcb8b^^b#ebcb8b^^c#2e3440^ 󰘚 %s%% ",                  NULL },
+	{ cpu_perc, "^c#a3be8c^^b#a3be8c^^c#2e3440^ 󰍛 %s%% ",                  NULL },
 	{ datetime, "^c#81a1c1^^b#81a1c1^^c#2e3440^ 󰸗 %s ",           "%a %b %e" },
 	{ datetime, "^c#b48ead^^b#b48ead^^c#2e3440^ 󰥔 %s ",           "%l:%M %p" },
 };
