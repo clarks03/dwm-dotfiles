@@ -5,22 +5,29 @@
 ![](./assets/rice2.png)
 ---
 ### Dependencies
+- neovim
 - zsh
-    - starship
-    - zsh-autosuggestions
-    - zsh-syntax-highlighting
+- starship
+- oh my zsh
+- zsh-autosuggestions
+- zsh-syntax-highlighting
 - kitty
 - dunst
-- neovim
 - JetBrainsMono Nerd Font
 - Iosevka Nerd Font
+- pulseaudio-utils (for `pactl`)
+- exa
+- rust
+
+#### Post-install
+- krabby
+(This is because cargo is already added to my path via. the .zshrc, so if you don't want to manually add something to the path before running the script, you can run it after the script.)
 
 ### Installation
-**WARNING:** If you're reading this, that means I'm in the brief period between writing the install.sh script and actually running it. This might actually ruin your entire computer. Be warned.
+**NOTE:** This script worked for me on a newly spun Fedora VM. It **should** work for you, but if you want to be safe, you can always install the dots manually.
 
 Execute the following commands:
 ```sh
-cd ~  # Change to your home directory
 git clone https://github.com/clarks03/dwm-dotfiles.git
 cd dwm-dotfiles.git
 chmod +x install.sh
