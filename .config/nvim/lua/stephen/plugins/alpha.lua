@@ -39,6 +39,8 @@ return {
             dashboard.button("q", "  > Quit nvim", "<cmd>qa<CR>"),
         }
 
+        -- Hello world!
+
         -- Send config to alpha
         alpha.setup(dashboard.opts)
 
