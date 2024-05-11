@@ -217,7 +217,7 @@ fi
 while true; do
     read -p "Do you want to remake dwm? [y/n] " yn
     case $yn in
-        [Yy]* ) cd .local/src/dwm; sudo make clean install; cd ../../..; break;;
+        [Yy]* ) cd .local/src/dwm; sudo make clean install; cd ../../..; echo "NOTE: to use dwm the way I have configured it, you need to set your dwm startup script to $(pwd)/.local/bin/dwm-wrapper-script."; break;;
         * ) break;;
     esac
 done
