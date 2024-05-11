@@ -255,8 +255,3 @@ else
     ln -sf $(pwd)/.local/bin "$HOME"/.local/bin
 fi
 
-# Check if .local/bin is in the path
-if [[ $PATH ~= "${HOME}/.local/bin" ]]; then
-    echo "WARNING: ~/.local/bin is not included in your path. Here be dragons!"
-fi
-
