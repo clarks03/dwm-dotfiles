@@ -18,6 +18,7 @@
 - pulseaudio-utils (for `pactl`)
 - exa
 - rust
+- zathura
 
 #### Post-install
 - krabby
