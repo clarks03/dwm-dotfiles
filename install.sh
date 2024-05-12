@@ -197,6 +197,37 @@ ln -sf $(pwd)/.config/starship.toml "$HOME"/.config/starship.toml
 echo ""
 
 
+# Adding zathura
+
+# Check if zathura is installed
+# (Not sure if this actually works)
+echo "Checking if zathura is installed..."
+if [ -f "/usr/bin/zathura" ]; then
+    echo "zathura found"
+else
+    echo "zathura not found"
+    exit 1
+fi
+
+# Check if user already has a zathura config
+echo "Checking for an existing zathura config..."
+if [ -f "$HOME"/.config/zathura/zathurarc ]; then
+    echo "zathura configuration found."
+    while true; do
+        read -p "Do you want to backup your config? [y/n] " yn
+        case $yn in 
+            [Yy]* ) mv "$HOME"/.config/zathura/zathurarc "$HOME"/.config/zathura/zathurarc.bak; break;;
+            * ) break;;
+        esac
+    done
+fi
+
+# Install zathura config
+echo "Installing zathura config..."
+ln -sf $(pwd)/.config/zathura/zathurarc "$HOME"/.config/zathura/zathurarc
+echo ""
+
+
 # .local files
 
 # Adding src
